@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Planning Assistant</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Onboarding Form Overlay -->
+  <div id="onboardingForm" class="onboarding-overlay" style="display: none;">
+    <div class="onboarding-content">
+      <h1>Welcome to Course Assistant</h1>
+      <p class="onboarding-subtitle">Let's get you set up</p>
+
+      <div class="form-group">
+        <label for="onboardName">What's your name?</label>
+        <input type="text" id="onboardName" placeholder="Your name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="onboardMajor">What's your major?</label>
+        <input type="text" id="onboardMajor" placeholder="e.g., Computer Science" required />
+      </div>
+
+      <div class="form-group">
+        <label for="onboardCareer">What career path do you hope to pursue?</label>
+        <textarea id="onboardCareer" rows="2" placeholder="e.g., Software Engineer, Data Scientist..." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="onboardSkills">What specific skills are you hoping to develop?</label>
+        <textarea id="onboardSkills" rows="2" placeholder="e.g., Machine learning, leadership..." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="onboardApiKey">OpenAI API Key</label>
+        <input type="password" id="onboardApiKey" placeholder="sk-..." required />
+        <p class="form-help">Get your API key from <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI</a></p>
+      </div>
+
+      <button id="submitOnboarding" class="onboarding-submit">Get Started</button>
+    </div>
+  </div>
+
+  <!-- Main Interface -->
+  <div class="container">
+    <header>
+      <h1>Course Assistant</h1>
+      <p class="subtitle">AI-powered course planning help</p>
+    </header>
+
+    <div class="settings-section">
+      <div class="api-key-container">
+        <input
+          type="password"
+          id="apiKey"
+          placeholder="Enter OpenAI API Key"
+          autocomplete="off"
+        />
+        <button id="saveApiKey">Save</button>
+      </div>
+      <div id="apiKeyStatus" class="status-message"></div>
+    </div>
+
+    <div class="chat-section">
+      <div class="chat-container" id="chatContainer">
+        <div class="chat-message assistant">
+          <div class="message-content">
+            <p><strong>Hi! I'm your course planning assistant.</strong></p>
+            <p>I can help you:</p>
+            <ul>
+              <li>Understand course details</li>
+              <li>Plan your schedule</li>
+              <li>Answer questions about courses</li>
+            </ul>
+            <p>First, please enter your OpenAI API key above, then ask me anything!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-section">
+        <textarea
+          id="userInput"
+          placeholder="Ask about courses, scheduling, or planning..."
+          rows="3"
+        ></textarea>
+        <button id="sendBtn" disabled>Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
